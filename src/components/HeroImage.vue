@@ -17,10 +17,4 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
-img {
-  width: 500px;
-  height: auto;
-  object-fit: cover;
-}
-</style>
+<style></style>

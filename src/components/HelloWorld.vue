@@ -1,7 +1,18 @@
 <template>
   <div class="hello">
-    <h1>Belle's bakes</h1>
-    <hr />
+    <h1>B e l l e 's &nbsp;b a k e s</h1>
+    <div class="cart">
+      <img
+        @click="updateComponent(checkoutComponent)"
+        src="../assets/basket.png"
+      />
+      <span
+        v-if="checkout > 0"
+        @click="updateComponent(checkoutComponent)"
+        style="font-size:0.75rem"
+        >{{ checkout }}</span
+      >
+    </div>
     <br />
     <div class="nav-left">
       <ol class="menu-list">
@@ -10,45 +21,53 @@
             href="#"
             @mouseover="updatePic(brownies)"
             @click="updateComponent(brownies)"
-            >Brownies</a
+            >brownies</a
           >
-        </li>
-        <li class="menu-item">
-          <a
-            href="#"
-            @mouseover="updatePic(cupcakes)"
-            @click="updateComponent(cupcakes)"
-            >Cupcakes</a
-          >
+          <span>&nbsp;|</span>
         </li>
         <li class="menu-item">
           <a
             href="#"
             @mouseover="updatePic(truffles)"
             @click="updateComponent(truffles)"
-            >Truffles</a
+            >&nbsp;truffles</a
           >
+          <span>&nbsp;|</span>
         </li>
         <li class="menu-item">
           <a
             href="#"
             @mouseover="updatePic(about)"
             @click="updateComponent(about)"
-            >About</a
+            >&nbsp;about</a
           >
+          <span>&nbsp;|</span>
         </li>
         <li class="menu-item">
-          <img
-            class="cupcake"
-            @click="updateComponent(reload)"
-            src="../assets/cupcake.png"
-          />
+          <a
+            href="#"
+            @mouseover="updatePic(about)"
+            @click="updateComponent(about)"
+            >&nbsp;subscription</a
+          >
+          <span>&nbsp;|</span>
         </li>
+        <img
+          class="cupcake"
+          @click="updateComponent(reload)"
+          src="../assets/cupcake.png"
+        />
       </ol>
     </div>
 
     <div class="image product">
-      <component :is="currentComponent" :imgSrc="pic"></component>
+      <component
+        :is="currentComponent"
+        :imgSrc="pic"
+        :baskets="baskets"
+        @send-to-checkout="updateCheckout"
+        @update-cart-number="updateCartNumber"
+      ></component>
       <!--
       <HeroImage :imgSrc="pic" />
       -->
@@ -62,10 +81,16 @@ import BrownieShop from '../components/BrownieShop.vue'
 import CupcakeShop from '../components/CupcakeShop.vue'
 import TruffleShop from '../components/TruffleShop.vue'
 import AboutBelle from '../components/AboutBelle.vue'
+import CheckoutComponent from '../components/CheckoutComponent.vue'
 
 export default {
   components: {
-    HeroImage
+    HeroImage,
+    BrownieShop,
+    CupcakeShop,
+    TruffleShop,
+    AboutBelle,
+    CheckoutComponent
   },
   name: 'HelloWorld',
   props: {
@@ -73,10 +98,12 @@ export default {
   },
   data: function() {
     return {
+      checkout: 0,
+      baskets: [],
       pic: require('../assets/brownies.jpg'),
       currentComponent: HeroImage,
       brownies: {
-        pic: require('../assets/brownies.jpg'),
+        pic: require('../assets/brownies2.jpg'),
         currentComponent: BrownieShop
       },
       cupcakes: {
@@ -93,6 +120,9 @@ export default {
       },
       reload: {
         currentComponent: HeroImage
+      },
+      checkoutComponent: {
+        currentComponent: CheckoutComponent
       }
     }
   },
@@ -102,6 +132,20 @@ export default {
     },
     updateComponent(category) {
       this.currentComponent = category.currentComponent
+    },
+    updateCheckout(product) {
+      this.checkout += product.cart
+      // use spread operator to avoid mutation of original object
+      /*
+      this.baskets.push(product) */
+      this.baskets.push({ ...product })
+      console.log(this.baskets)
+    },
+    // this receives the totalBoxes emitted payload from CheckoutComponent whenever an item
+    // is deleted from the checkout, and updates the number next to the cart icon (top-right corner)
+    updateCartNumber(totalBoxes) {
+      console.log(totalBoxes)
+      this.checkout = totalBoxes
     }
   }
 }
@@ -116,14 +160,16 @@ export default {
 @import url('https://fonts.googleapis.com/css?family=Kodchasan');
 @import url('https://fonts.googleapis.com/css?family=Limelight');
 
+@font-face {
+  font-family: 'moderneSans';
+  src: url('../assets/DaddyLonglegsNF.ttf');
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  /*
-  font-family: 'Josefin Sans', sans-serif;
-  */
   font-family: 'Comfortaa', cursive;
   font-size: 1.125rem;
   line-height: 1.5;
@@ -134,6 +180,11 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.cart {
+  float: right;
+  vertical-align: middle;
+}
+
 ul {
   padding: 0;
   margin: 0;
@@ -142,13 +193,20 @@ ul {
 
 h1 {
   text-transform: uppercase;
+  /*
   font-family: 'Limelight', cursive;
-  font-size: 3.7rem;
+  */
+  font-family: moderneSans;
+  font-size: 4rem;
+  /*
+  font-size: 5rem;
   text-align: left;
-  margin-left: 180px;
-  margin-top: -50px;
-  margin-bottom: -10px;
-  color: #58381e;
+  margin-left: 30px;
+  */
+  text-align: center;
+  margin-top: -70px;
+  margin-bottom: -30px;
+  color: #331d0b;
   /* #80532d; */
   /* #8c6833; */
 }
@@ -156,34 +214,49 @@ h1 {
 .cupcake {
   height: 20px;
   width: auto;
-  margin-left: 20px;
-  margin-top: 10px;
+  margin-left: 10px;
+  /*
+  display: inline;
+  */
+  vertical-align: middle;
+  border: none;
 }
 
 a {
-  color: #58381e;
+  color: #724520;
   text-decoration: none;
   transition: all 0.2s ease;
   font-weight: bold;
+  font-size: 1rem;
 }
 
 img {
-  width: 500px;
-  height: auto;
+  /*
+  width: 1220px; 
+  margin-left: -10px;
+  height: 500px;
+  */
+  width: 100%;
+  height: 535px;
   object-fit: cover;
-}
 
+  margin-top: -10px;
+  /*
+  border: solid 1px #58381e;
+  */
+}
+/*
 hr {
   display: block;
   margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  margin-left: 180px;
-  margin-right: 290px;
+  margin-bottom: -25px;
+  margin-left: 30px;
+  margin-right: 40px;
   border-style: solid;
   border-width: 1.5px;
-  color: #80532d;
+  color: #331d0b;
 }
-
+*/
 .head {
   display: block;
   width: 100%;
@@ -192,19 +265,47 @@ hr {
 }
 
 .nav-left {
+  /*
   float: left;
+  */
   display: block;
-  width: 15%;
+  /* width: 15%; */
+}
+
+.image product {
+  width: 100%;
+  clear: both;
 }
 
 .menu-list {
+  /*
   text-align: left;
-  margin-left: 180px;
+  margin-left: 30px;
+  */
+  clear: both;
+  text-align: center;
   padding: 0;
   list-style: none;
+  /*
+  margin-top: 5px;
+  */
+  margin-top: -15px;
+}
+
+.menu-item {
+  display: inline;
 }
 
 .menu-item :hover {
   color: #80522d79;
+}
+
+.cart {
+  margin-top: -20px;
+  margin-right: 3rem;
+}
+.cart img {
+  height: 20px;
+  width: auto;
 }
 </style>
