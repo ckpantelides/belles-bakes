@@ -1,28 +1,23 @@
 <template>
   <div class="hello">
-    <h1>B e l l e 's &nbsp;b a k e s</h1>
+    <h1 style="cursor:pointer" @click="updateComponent(reload)">B e l l e 's &nbsp;b a k e s</h1>
     <div class="cart">
       <img
         @click="updateComponent(checkoutComponent)"
         src="../assets/basket.png"
-      />
+        style="cursor:pointer"
+      >
       <span
         v-if="checkout > 0"
         @click="updateComponent(checkoutComponent)"
-        style="font-size:0.75rem"
-        >{{ checkout }}</span
-      >
+        style="font-size:0.75rem; cursor:pointer"
+      >{{ checkout }}</span>
     </div>
-    <br />
+    <br>
     <div class="nav-left">
       <ol class="menu-list">
         <li class="menu-item">
-          <a
-            href="#"
-            @mouseover="updatePic(brownies)"
-            @click="updateComponent(brownies)"
-            >brownies</a
-          >
+          <a href="#" @mouseover="updatePic(brownies)" @click="updateComponent(brownies)">brownies</a>
           <span>&nbsp;|</span>
         </li>
         <li class="menu-item">
@@ -30,8 +25,11 @@
             href="#"
             @mouseover="updatePic(truffles)"
             @click="updateComponent(truffles)"
-            >&nbsp;truffles</a
-          >
+          >&nbsp;truffles</a>
+          <span>&nbsp;|</span>
+        </li>
+        <li class="menu-item">
+          <a href="#" @mouseover="updatePic(about)" @click="updateComponent(about)">&nbsp;about</a>
           <span>&nbsp;|</span>
         </li>
         <li class="menu-item">
@@ -39,24 +37,18 @@
             href="#"
             @mouseover="updatePic(about)"
             @click="updateComponent(about)"
-            >&nbsp;about</a
-          >
+          >&nbsp;subscription</a>
+          <!--
           <span>&nbsp;|</span>
+          -->
         </li>
-        <li class="menu-item">
-          <a
-            href="#"
-            @mouseover="updatePic(about)"
-            @click="updateComponent(about)"
-            >&nbsp;subscription</a
-          >
-          <span>&nbsp;|</span>
-        </li>
+        <!--
         <img
           class="cupcake"
           @click="updateComponent(reload)"
           src="../assets/cupcake.png"
         />
+        -->
       </ol>
     </div>
 
@@ -139,12 +131,10 @@ export default {
       /*
       this.baskets.push(product) */
       this.baskets.push({ ...product })
-      console.log(this.baskets)
     },
     // this receives the totalBoxes emitted payload from CheckoutComponent whenever an item
     // is deleted from the checkout, and updates the number next to the cart icon (top-right corner)
     updateCartNumber(totalBoxes) {
-      console.log(totalBoxes)
       this.checkout = totalBoxes
     }
   }
