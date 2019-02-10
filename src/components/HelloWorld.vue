@@ -20,37 +20,27 @@
     <div class="nav-left">
       <ol class="menu-list">
         <li class="menu-item">
-          <a
-            href="#"
-            @mouseover="updatePic(brownies)"
-            @click="updateComponent(brownies)"
+          <a @mouseover="updatePic(brownies)" @click="updateComponent(brownies)"
             >brownies</a
           >
           <span>&nbsp;|</span>
         </li>
         <li class="menu-item">
-          <a
-            href="#"
-            @mouseover="updatePic(truffles)"
-            @click="updateComponent(truffles)"
+          <a @mouseover="updatePic(truffles)" @click="updateComponent(truffles)"
             >&nbsp;truffles</a
           >
           <span>&nbsp;|</span>
         </li>
         <li class="menu-item">
-          <a
-            href="#"
-            @mouseover="updatePic(about)"
-            @click="updateComponent(about)"
+          <a @mouseover="updatePic(about)" @click="updateComponent(about)"
             >&nbsp;about</a
           >
           <span>&nbsp;|</span>
         </li>
         <li class="menu-item">
           <a
-            href="#"
             @mouseover="updatePic(about)"
-            @click="updateComponent(about)"
+            @click="updateComponent(subscriptions)"
             >&nbsp;subscription</a
           >
           <!--
@@ -88,6 +78,7 @@ import BrownieShop from '../components/BrownieShop.vue'
 import CupcakeShop from '../components/CupcakeShop.vue'
 import TruffleShop from '../components/TruffleShop.vue'
 import AboutBelle from '../components/AboutBelle.vue'
+import Subscriptions from '../components/Subscriptions.vue'
 import CheckoutComponent from '../components/CheckoutComponent.vue'
 
 export default {
@@ -97,6 +88,7 @@ export default {
     CupcakeShop,
     TruffleShop,
     AboutBelle,
+    Subscriptions,
     CheckoutComponent
   },
   name: 'HelloWorld',
@@ -107,10 +99,10 @@ export default {
     return {
       checkout: 0,
       baskets: [],
-      pic: require('../assets/brownies.jpg'),
+      pic: require('../assets/about.jpg'),
       currentComponent: HeroImage,
       brownies: {
-        pic: require('../assets/brownies2.jpg'),
+        pic: require('../assets/brownies.jpg'),
         currentComponent: BrownieShop
       },
       cupcakes: {
@@ -124,6 +116,10 @@ export default {
       about: {
         pic: require('../assets/about.jpg'),
         currentComponent: AboutBelle
+      },
+      subscriptions: {
+        pic: require('../assets/about.jpg'),
+        currentComponent: Subscriptions
       },
       reload: {
         currentComponent: HeroImage
