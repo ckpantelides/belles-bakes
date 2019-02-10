@@ -1,23 +1,31 @@
 <template>
   <div class="hello">
-    <h1 style="cursor:pointer" @click="updateComponent(reload)">B e l l e 's &nbsp;b a k e s</h1>
+    <h1 style="cursor:pointer" @click="updateComponent(reload)">
+      B e l l e 's &nbsp;b a k e s
+    </h1>
     <div class="cart">
       <img
         @click="updateComponent(checkoutComponent)"
         src="../assets/basket.png"
         style="cursor:pointer"
-      >
+      />
       <span
         v-if="checkout > 0"
         @click="updateComponent(checkoutComponent)"
         style="font-size:0.75rem; cursor:pointer"
-      >{{ checkout }}</span>
+        >{{ checkout }}</span
+      >
     </div>
-    <br>
+    <br />
     <div class="nav-left">
       <ol class="menu-list">
         <li class="menu-item">
-          <a href="#" @mouseover="updatePic(brownies)" @click="updateComponent(brownies)">brownies</a>
+          <a
+            href="#"
+            @mouseover="updatePic(brownies)"
+            @click="updateComponent(brownies)"
+            >brownies</a
+          >
           <span>&nbsp;|</span>
         </li>
         <li class="menu-item">
@@ -25,11 +33,8 @@
             href="#"
             @mouseover="updatePic(truffles)"
             @click="updateComponent(truffles)"
-          >&nbsp;truffles</a>
-          <span>&nbsp;|</span>
-        </li>
-        <li class="menu-item">
-          <a href="#" @mouseover="updatePic(about)" @click="updateComponent(about)">&nbsp;about</a>
+            >&nbsp;truffles</a
+          >
           <span>&nbsp;|</span>
         </li>
         <li class="menu-item">
@@ -37,7 +42,17 @@
             href="#"
             @mouseover="updatePic(about)"
             @click="updateComponent(about)"
-          >&nbsp;subscription</a>
+            >&nbsp;about</a
+          >
+          <span>&nbsp;|</span>
+        </li>
+        <li class="menu-item">
+          <a
+            href="#"
+            @mouseover="updatePic(about)"
+            @click="updateComponent(about)"
+            >&nbsp;subscription</a
+          >
           <!--
           <span>&nbsp;|</span>
           -->
