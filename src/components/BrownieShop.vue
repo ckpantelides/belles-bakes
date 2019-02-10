@@ -94,7 +94,7 @@ export default {
   props: {},
   data: function() {
     return {
-      id: -1,
+      id: 0,
       classicBrownie: {
         name: 'classic brownies',
         cart: 0,

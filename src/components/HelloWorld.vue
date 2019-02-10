@@ -39,7 +39,7 @@
         </li>
         <li class="menu-item">
           <a
-            @mouseover="updatePic(about)"
+            @mouseover="updatePic(subscriptions)"
             @click="updateComponent(subscriptions)"
             >&nbsp;subscription</a
           >
@@ -110,7 +110,7 @@ export default {
         currentComponent: CupcakeShop
       },
       truffles: {
-        pic: require('../assets/truffles.jpg'),
+        pic: require('../assets/truffles2.jpg'),
         currentComponent: TruffleShop
       },
       about: {
@@ -118,7 +118,7 @@ export default {
         currentComponent: AboutBelle
       },
       subscriptions: {
-        pic: require('../assets/about.jpg'),
+        pic: require('../assets/subscription.jpg'),
         currentComponent: Subscriptions
       },
       reload: {

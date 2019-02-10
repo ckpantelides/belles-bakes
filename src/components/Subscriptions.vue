@@ -19,19 +19,19 @@
         first box!
       </p>
       <br />
-      <div class="subscription">
+      <div class="subscription" @click="sendToCheckout(quarterlySub)">
         <p style="font-weight:bold">Quarterly subscription</p>
         <p>(1 box of brownies each month for three months)</p>
         <p style="font-weight:bold">£30</p>
       </div>
       <br />
-      <div class="subscription">
+      <div class="subscription" @click="sendToCheckout(sixMonthSub)">
         <p style="font-weight:bold">Six month subscription</p>
         <p>(1 box of brownies each month for six months)</p>
         <p style="font-weight:bold">£50</p>
       </div>
       <br />
-      <div class="subscription">
+      <div class="subscription" @click="sendToCheckout(yearlySub)">
         <p style="font-weight:bold">Full year subscription</p>
         <p>(1 box of brownies each month for twelve months)</p>
         <p style="font-weight:bold">£90</p>
@@ -42,10 +42,37 @@
 
 <script>
 export default {
-  name: 'AboutBelle',
+  name: 'Subscription',
   props: {},
   data: function() {
-    return {}
+    return {
+      id: 30,
+      quarterlySub: {
+        name: 'quarterly subscription',
+        cart: 1,
+        price: 30,
+        id: 0
+      },
+      sixMonthSub: {
+        name: 'six month subscription',
+        cart: 1,
+        price: 50,
+        id: 0
+      },
+      yearlySub: {
+        name: 'one year subscription',
+        cart: 1,
+        price: 90,
+        id: 0
+      }
+    }
+  },
+  methods: {
+    sendToCheckout(product) {
+      this.id++
+      product.id = this.id
+      this.$emit('send-to-checkout', product)
+    }
   }
 }
 </script>
@@ -98,6 +125,7 @@ div.subscription {
   width: 40%;
   margin-left: auto;
   margin-right: auto;
+  cursor: pointer;
 }
 
 div.subscription p {
