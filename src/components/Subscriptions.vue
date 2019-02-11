@@ -1,40 +1,40 @@
 <template>
   <div>
+    <!--
     <hr />
+    -->
     <div class="shop">
       <br />
-      <h2>subscriptions</h2>
-
-      <p class="question">The perfect gift for you and your loved ones</p>
-      <br />
-      <p>We offer quarterly, six-monthly and yearly subscriptions</p>
-      <br />
-      <p>
-        Our subscription requires just one payment. The lucky recipient will
-        receive one full batch (8 pieces) every month, with a different flavour
-        each time. We’ll send the first box with a card on a date of your
-        choice. We’ll also send them an email telling them the dates they’ll be
-        receiving their next boxes so they can contact us to change it if they
-        need to – don’t worry we won’t send this until they’ve signed for their
-        first box!
-      </p>
-      <br />
-      <div class="subscription" @click="sendToCheckout(quarterlySub)">
-        <p style="font-weight:bold">Quarterly subscription</p>
-        <p>(1 box of brownies each month for three months)</p>
-        <p style="font-weight:bold">£30</p>
-      </div>
-      <br />
-      <div class="subscription" @click="sendToCheckout(sixMonthSub)">
-        <p style="font-weight:bold">Six month subscription</p>
-        <p>(1 box of brownies each month for six months)</p>
-        <p style="font-weight:bold">£50</p>
-      </div>
-      <br />
-      <div class="subscription" @click="sendToCheckout(yearlySub)">
-        <p style="font-weight:bold">Full year subscription</p>
-        <p>(1 box of brownies each month for twelve months)</p>
-        <p style="font-weight:bold">£90</p>
+      <div class="subscription-container">
+        <p class="question">The perfect gift for you and your loved ones</p>
+        <p>We offer quarterly, six-monthly and yearly subscriptions</p>
+        <p>
+          Our subscription requires just one payment. The lucky recipient will
+          receive one full batch (8 pieces) every month, with a different
+          flavour each time. We’ll send the first box with a card on a date of
+          your choice. We’ll also send them an email telling them the dates
+          they’ll be receiving their next boxes so they can contact us to change
+          it if they need to – don’t worry we won’t send this until they’ve
+          signed for their first box!
+        </p>
+        <br />
+        <div class="subscription" @click="sendToCheckout(quarterlySub)">
+          <p style="font-weight:bold">Quarterly subscription</p>
+          <p>(1 box of brownies each month for three months)</p>
+          <p style="font-weight:bold">£30</p>
+        </div>
+        <br />
+        <div class="subscription" @click="sendToCheckout(sixMonthSub)">
+          <p style="font-weight:bold">Six month subscription</p>
+          <p>(1 box of brownies each month for six months)</p>
+          <p style="font-weight:bold">£50</p>
+        </div>
+        <br />
+        <div class="subscription" @click="sendToCheckout(yearlySub)">
+          <p style="font-weight:bold">Full year subscription</p>
+          <p>(1 box of brownies each month for twelve months)</p>
+          <p style="font-weight:bold">£90</p>
+        </div>
       </div>
     </div>
   </div>
@@ -82,14 +82,19 @@ export default {
 div.shop {
   clear: both;
   display: block;
-  height: 470px;
-  margin-left: 8rem;
-  margin-right: 8rem;
-  /*
-  border: solid 1px #58381e;
-   padding: 15px;
-  margin: 20px;
-  */
+  height: 526px;
+  margin-top: 20px;
+  background: #af7e58;
+}
+
+.subscription-container {
+  width: 75%;
+  margin-right: auto;
+  margin-left: auto;
+  background: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+  height: 480px;
+  padding: 2px 10px;
 }
 
 hr {
@@ -111,7 +116,6 @@ h2 {
 }
 
 p {
-  margin-top: -20px;
   color: #331d0b;
   font-size: 0.8rem;
 }
@@ -126,6 +130,7 @@ div.subscription {
   margin-left: auto;
   margin-right: auto;
   cursor: pointer;
+  padding: 2px;
 }
 
 div.subscription p {

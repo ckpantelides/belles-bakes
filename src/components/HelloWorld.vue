@@ -33,7 +33,7 @@
         </li>
         <li class="menu-item">
           <a @mouseover="updatePic(about)" @click="updateComponent(about)"
-            >&nbsp;about</a
+            >&nbsp;faqs</a
           >
           <span>&nbsp;|</span>
         </li>
