@@ -137,9 +137,10 @@ div.shop {
 
 img {
   width: 100vw;
-  height: 82vh;
+  height: 83vh;
   object-fit: cover;
   margin: 0;
+  margin-top: -28px;
 }
 
 hr {

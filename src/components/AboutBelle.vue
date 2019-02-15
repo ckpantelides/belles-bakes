@@ -5,6 +5,7 @@
       <br />
 
       <div class="faqs-container">
+        <br />
         <p class="question">How long will the brownies keep for?</p>
 
         <p>
@@ -42,7 +43,9 @@
           You can find out more information about the delivery options available
           to you here.
         </p>
+
         <p class="question">How to contact us?</p>
+
         <p>
           If you need to get in touch for any reason email us at
           hello@bellesbakes.com
@@ -79,6 +82,7 @@ hr {
   border-width: 4px;
   color: #faf2ed;
 }
+
 .faqs-container {
   width: 75%;
   margin-right: auto;
@@ -104,6 +108,8 @@ p {
 
 p.question {
   font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 600px) {

@@ -4,6 +4,7 @@
       <hr />
       <br />
       <div class="subscription-container">
+        <br />
         <p class="question">The perfect gift for you and your loved ones</p>
         <p>We offer quarterly, six-monthly and yearly subscriptions</p>
         <p>
@@ -118,6 +119,7 @@ p {
 
 p.question {
   font-weight: bold;
+  margin-bottom: 10px;
 }
 
 div.subscription {

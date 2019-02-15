@@ -249,6 +249,7 @@ p.item-blurb {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+  margin-top: -5px;
 }
 
 .item-card {
