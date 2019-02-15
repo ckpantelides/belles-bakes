@@ -1,15 +1,8 @@
 <template>
   <div>
-    <!--
-    <hr />
-    -->
     <div class="shop">
+      <hr />
       <br />
-      <br />
-
-      <!--
-      <h2>brownie shop</h2>
-      -->
       <div class="item-container">
         <div class="item-card">
           <img class="item-pic" src="../assets/brownies.jpg" />
@@ -201,45 +194,35 @@ export default {
       }
     },
     sendToCheckout(product) {
-      this.id++
-      product.id = this.id
-      this.$emit('send-to-checkout', product)
-
-      /*
-      product.cart = 0
-      product.id = 0
-      */
+      if (product.cart > 0) {
+        this.id++
+        product.id = this.id
+        this.$emit('send-to-checkout', product)
+      }
     }
   }
 }
 </script>
 
 <style scoped>
+.header {
+  height: 13vh;
+}
+
 div.shop {
   clear: both;
   display: block;
-  height: 532px;
-  margin-top: 20px;
-  background: #af7e58;
-  /*
-  margin-left: 2rem;
-  margin-right: 2rem;
-  */
-  /*
-  border: solid 1px #58381e;
-   padding: 15px;
-  margin: 20px;
-  */
+  height: 82vh;
+  background: #faf2ed;
 }
 
 hr {
-  display: block;
+  display: none;
   width: 100%;
   margin-top: -10px;
-  margin-bottom: -25px;
   border-style: solid;
-  border-width: 1px;
-  color: #331d0b;
+  border-width: 4px;
+  color: #faf2ed;
 }
 
 h2 {
@@ -270,10 +253,10 @@ p.item-blurb {
 
 .item-card {
   flex: 1;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   transition: 0.3s;
   margin: 1%;
-  height: 430px;
+  max-height: 500px;
   background: white;
 }
 
@@ -303,9 +286,17 @@ button.cart-send {
 }
 
 @media screen and (max-width: 600px) {
+  div.shop {
+    background: white;
+  }
+
+  hr {
+    display: block;
+  }
+
   .item-container {
     display: flex;
-    width: 330px;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     flex-wrap: nowrap;
@@ -314,7 +305,8 @@ button.cart-send {
 
   .item-card {
     flex: 0 0 auto;
-    max-width: 330px;
+    max-width: 90%;
+    box-shadow: none;
   }
 }
 </style>

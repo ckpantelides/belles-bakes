@@ -1,18 +1,25 @@
 <template>
   <div>
-    <!--
-    <hr />
-    -->
     <div class="shop">
+      <hr />
       <br />
-      <!--
-      <h2>checkout</h2>
-      -->
       <div v-if="baskets.length < 1">
         <img src="../assets/emptyBasket2.jpg" />
       </div>
       <div v-else-if="baskets.length > 0">
         <div class="checkout-wrapper">
+          <div class="order-container">
+            <br />
+            <p style="text-decoration:underline">
+              <b>your details</b>
+            </p>
+            <br />
+            <p>name</p>
+            <p>address</p>
+
+            <br />
+            <br />
+          </div>
           <div class="order-container">
             <br />
             <p style="text-decoration:underline">
@@ -53,12 +60,14 @@
                 <tr></tr>
                 <th>all in</th>
                 <th>&nbsp;&nbsp;&nbsp;</th>
-                <th style="border:1px solid">£{{ costWithShipping }}</th>
+                <th style="text-decoration:underline">
+                  £{{ costWithShipping }}
+                </th>
                 <th>&nbsp;&nbsp;&nbsp;</th>
               </table>
 
               <br />
-              <button class="pay">Pay now</button>
+              <button class="pay">place order</button>
             </div>
 
             <div v-else-if="totalBoxes >= 6">
@@ -67,18 +76,6 @@
                 Please delete some items from your basket
               </p>
             </div>
-          </div>
-          <div class="order-container">
-            <br />
-            <p style="text-decoration:underline">
-              <b>your details</b>
-            </p>
-            <br />
-            <p>name</p>
-            <p>address</p>
-
-            <br />
-            <br />
           </div>
         </div>
       </div>
@@ -131,15 +128,27 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Comfortaa');
-
 div.shop {
   clear: both;
   display: block;
-  height: 526px;
-  margin-top: 20px;
-  background: #af7e58;
+  height: 82vh;
+  background: #faf2ed;
 }
 
+img {
+  width: 100vw;
+  height: 82vh;
+  object-fit: cover;
+  margin: 0;
+}
+
+hr {
+  display: none;
+  width: 100%;
+  border-style: solid;
+  border-width: 4px;
+  color: #faf2ed;
+}
 .checkout-wrapper {
   display: flex;
   width: 90%;
@@ -159,16 +168,6 @@ div.shop {
   margin: 0% 2%;
 }
 
-hr {
-  display: block;
-  width: 100%;
-  margin-top: -10px;
-  margin-bottom: -25px;
-  border-style: solid;
-  border-width: 1px;
-  color: #331d0b;
-}
-
 h2 {
   font-family: 'Comfortaa', cursive;
   font-size: 2rem;
@@ -178,7 +177,6 @@ h2 {
 }
 
 p {
-  margin-top: -20px;
   color: #331d0b;
   font-size: 1rem;
 }
@@ -204,14 +202,41 @@ button.pay {
   color: #331d0b;
   font-family: 'Comfortaa', cursive;
   font-size: 1.25rem;
-  border: 1px #331d0b solid;
+  border: none;
+  text-decoration: underline;
 }
 
-img {
-  width: 100%;
-  height: 529px;
-  object-fit: cover;
-  margin-top: -30px;
-  margin-bottom: 0px;
+@media screen and (max-width: 600px) {
+  .header {
+    height: 13vh;
+  }
+  div.shop {
+    background: white;
+  }
+
+  hr {
+    display: block;
+  }
+
+  img {
+    margin-top: -40px;
+    height: 90vh;
+  }
+
+  .checkout-wrapper {
+    display: flex;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+
+  .order-container {
+    justify-content: center;
+    width: 90%;
+    height: auto;
+    box-shadow: none;
+  }
 }
 </style>

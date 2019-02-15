@@ -1,9 +1,7 @@
 <template>
   <div>
-    <!--
-    <hr />
-    -->
     <div class="shop">
+      <hr />
       <br />
 
       <div class="faqs-container">
@@ -69,11 +67,18 @@ export default {
 div.shop {
   clear: both;
   display: block;
-  height: 526px;
-  margin-top: 20px;
-  background: #af7e58;
+  height: 82vh;
+  background: #faf2ed;
 }
 
+hr {
+  display: none;
+  width: 100%;
+  margin-top: -10px;
+  border-style: solid;
+  border-width: 4px;
+  color: #faf2ed;
+}
 .faqs-container {
   width: 75%;
   margin-right: auto;
@@ -82,16 +87,6 @@ div.shop {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
   height: 480px;
   padding: 2px 10px;
-}
-
-hr {
-  display: block;
-  width: 100%;
-  margin-top: -10px;
-  margin-bottom: -25px;
-  border-style: solid;
-  border-width: 1px;
-  color: #331d0b;
 }
 
 h2 {
@@ -109,5 +104,29 @@ p {
 
 p.question {
   font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    height: 13vh;
+  }
+  div.shop {
+    background: white;
+    overflow-y: scroll;
+    margin-top: -15px;
+  }
+
+  hr {
+    display: block;
+    margin-top: 0;
+  }
+
+  .faqs-container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+    box-shadow: none;
+  }
 }
 </style>
