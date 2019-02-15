@@ -166,14 +166,16 @@ p.item-blurb {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
+  overflow-x: scroll;
 }
 
 .item-card {
   flex: 1;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   transition: 0.3s;
-  margin: 0% 3%;
-  height: 430px;
+  margin: 1%;
+  min-width: 250px;
+  min-height: 440px;
   background: white;
 }
 
@@ -200,6 +202,12 @@ button.cart-add {
 button.cart-send {
   background-color: white;
   border: solid 1px #331d0b;
+}
+
+@media screen and (max-width: 600px) {
+  .item-container {
+    width: 60%;
+  }
 }
 
 @media screen and (max-width: 600px) {

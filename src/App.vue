@@ -161,6 +161,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
   height: 100vh;
+  width: 100vw;
   font-family: 'Comfortaa', cursive;
   font-size: 1.125rem;
   line-height: 1.5;
@@ -168,7 +169,6 @@ export default {
   color: black;
   background: white;
   text-rendering: optimizeLegibility;
-  width: 100%;
 }
 
 div.header {

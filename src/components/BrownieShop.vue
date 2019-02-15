@@ -250,6 +250,7 @@ p.item-blurb {
   margin-left: auto;
   margin-right: auto;
   margin-top: -5px;
+  overflow-x: scroll;
 }
 
 .item-card {
@@ -257,7 +258,8 @@ p.item-blurb {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   transition: 0.3s;
   margin: 1%;
-  max-height: 500px;
+  min-width: 250px;
+  min-height: 440px;
   background: white;
 }
 

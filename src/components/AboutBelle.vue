@@ -88,7 +88,7 @@ hr {
   margin-right: auto;
   margin-left: auto;
   background: white;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   height: 480px;
   padding: 2px 10px;
 }
