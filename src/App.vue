@@ -1,39 +1,49 @@
 <template>
   <div id="app">
     <div class="header">
-      <h1 style="cursor:pointer" @click="updateComponent(reload)">B e l l e 's &nbsp;b a k e s</h1>
+      <h1 style="cursor:pointer" @click="updateComponent(reload)">
+        B e l l e 's &nbsp;b a k e s
+      </h1>
       <div class="cart">
         <img
           @click="updateComponent(checkoutComponent)"
           src="./assets/basket.png"
           style="cursor:pointer"
-        >
+        />
         <span
           v-if="checkout > 0"
           @click="updateComponent(checkoutComponent)"
           style="font-size:0.75rem; cursor:pointer"
-        >{{ checkout }}</span>
+          >{{ checkout }}</span
+        >
       </div>
-      <br>
+      <br />
 
       <ol class="menu-list">
         <li class="menu-item">
-          <a @mouseover="updatePic(brownies)" @click="updateComponent(brownies)">brownies</a>
+          <a @mouseover="updatePic(brownies)" @click="updateComponent(brownies)"
+            >brownies</a
+          >
           <span>&nbsp;|</span>
         </li>
         <li class="menu-item">
-          <a @mouseover="updatePic(truffles)" @click="updateComponent(truffles)">&nbsp;truffles</a>
+          <a @mouseover="updatePic(truffles)" @click="updateComponent(truffles)"
+            >&nbsp;truffles</a
+          >
           <span>&nbsp;|</span>
         </li>
         <li class="menu-item">
-          <a @mouseover="updatePic(about)" @click="updateComponent(about)">&nbsp;faqs</a>
+          <a @mouseover="updatePic(about)" @click="updateComponent(about)"
+            >&nbsp;faqs</a
+          >
           <span>&nbsp;|</span>
         </li>
         <li class="menu-item">
           <a
             @mouseover="updatePic(subscriptions)"
             @click="updateComponent(subscriptions)"
-          >&nbsp;subscription</a>
+            >&nbsp;subscription</a
+          >
         </li>
       </ol>
     </div>
