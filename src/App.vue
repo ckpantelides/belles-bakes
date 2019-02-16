@@ -33,16 +33,16 @@
           <span>&nbsp;|</span>
         </li>
         <li class="menu-item">
-          <a @mouseover="updatePic(about)" @click="updateComponent(about)"
-            >&nbsp;faqs</a
-          >
-          <span>&nbsp;|</span>
-        </li>
-        <li class="menu-item">
           <a
             @mouseover="updatePic(subscriptions)"
             @click="updateComponent(subscriptions)"
             >&nbsp;subscription</a
+          >
+          <span>&nbsp;|</span>
+        </li>
+        <li class="menu-item">
+          <a @mouseover="updatePic(about)" @click="updateComponent(about)"
+            >&nbsp;faqs</a
           >
         </li>
       </ol>
@@ -208,6 +208,7 @@ h1 {
   margin-top: -70px;
   margin-bottom: -30px;
   color: #331d0b;
+  user-select: none;
 }
 
 a {
@@ -228,6 +229,7 @@ a {
 
 .menu-item {
   display: inline;
+  user-select: none;
 }
 
 .menu-item :hover {
@@ -246,6 +248,11 @@ a {
 @media screen and (max-width: 600px) {
   h1 {
     font-size: 3rem;
+    margin-top: -65px;
+  }
+
+  div.header {
+    height: 13vh;
   }
 }
 </style>

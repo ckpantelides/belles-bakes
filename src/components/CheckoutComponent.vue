@@ -2,14 +2,13 @@
   <div>
     <div class="shop">
       <hr />
-      <br />
       <div v-if="baskets.length < 1">
+        <br />
         <img src="../assets/emptyBasket2.jpg" />
       </div>
       <div v-else-if="baskets.length > 0">
         <div class="checkout-wrapper">
           <div class="order-container">
-            <br />
             <p style="text-decoration:underline">
               <b>your details</b>
             </p>
@@ -25,7 +24,6 @@
             <p style="text-decoration:underline">
               <b>your order</b>
             </p>
-            <br />
             <table class="checkout">
               <th>type</th>
               <th>boxes</th>
@@ -217,6 +215,7 @@ button.pay {
 
   hr {
     display: block;
+    margin-top: -10px;
   }
 
   img {

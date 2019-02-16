@@ -23,7 +23,7 @@
             <button class="cart-add" @click="cartMinus(milkChocTruffle)">
               -
             </button>
-            <span style="font-size:0.8rem">{{ milkChocTruffle.cart }}</span>
+            <span class="cart-total">{{ milkChocTruffle.cart }}</span>
             <button class="cart-add" @click="cartAdd(milkChocTruffle)">
               +
             </button>
@@ -31,7 +31,7 @@
             <button class="cart-send" @click="sendToCheckout(milkChocTruffle)">
               add to cart
             </button>
-            <p v-if="milkChocTruffle.cart > 0">
+            <p v-if="milkChocTruffle.cart > 0" class="cart-total">
               £{{ subTotal(milkChocTruffle) }}
             </p>
           </div>
@@ -55,7 +55,7 @@
             <button class="cart-add" @click="cartMinus(darkChocTruffle)">
               -
             </button>
-            <span style="font-size:0.8rem">{{ darkChocTruffle.cart }}</span>
+            <span class="cart-total">{{ darkChocTruffle.cart }}</span>
             <button class="cart-add" @click="cartAdd(darkChocTruffle)">
               +
             </button>
@@ -63,7 +63,7 @@
             <button class="cart-send" @click="sendToCheckout(darkChocTruffle)">
               add to cart
             </button>
-            <p v-if="darkChocTruffle.cart > 0">
+            <p v-if="darkChocTruffle.cart > 0" class="cart-total">
               £{{ subTotal(darkChocTruffle) }}
             </p>
           </div>
@@ -204,6 +204,10 @@ button.cart-send {
   border: solid 1px #331d0b;
 }
 
+.cart-total {
+  font-size: 0.8rem;
+}
+
 @media screen and (max-width: 600px) {
   .item-container {
     width: 60%;
@@ -235,6 +239,16 @@ button.cart-send {
     flex: 0 0 auto;
     max-width: 90%;
     box-shadow: none;
+  }
+
+  span.cart-total {
+    font-size: 1rem;
+    padding: 0 5px 0 5px;
+  }
+
+  button.cart-send,
+  button.cart-add {
+    font-size: 0.9rem;
   }
 }
 </style>

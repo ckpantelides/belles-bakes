@@ -23,13 +23,13 @@
             <button class="cart-add" @click="cartMinus(classicBrownie)">
               -
             </button>
-            <span style="font-size:0.8rem">{{ classicBrownie.cart }}</span>
+            <span class="cart-total">{{ classicBrownie.cart }}</span>
             <button class="cart-add" @click="cartAdd(classicBrownie)">+</button>
             <br />
             <button class="cart-send" @click="sendToCheckout(classicBrownie)">
               add to cart
             </button>
-            <p v-if="classicBrownie.cart > 0">
+            <p v-if="classicBrownie.cart > 0" class="cart-total">
               £{{ subTotal(classicBrownie) }}
             </p>
           </div>
@@ -57,7 +57,7 @@
             <button class="cart-add" @click="cartMinus(darkChocBrownie)">
               -
             </button>
-            <span style="font-size:0.8rem">{{ darkChocBrownie.cart }}</span>
+            <span class="cart-total">{{ darkChocBrownie.cart }}</span>
             <button class="cart-add" @click="cartAdd(darkChocBrownie)">
               +
             </button>
@@ -65,7 +65,7 @@
             <button class="cart-send" @click="sendToCheckout(darkChocBrownie)">
               add to cart
             </button>
-            <p v-if="darkChocBrownie.cart > 0">
+            <p v-if="darkChocBrownie.cart > 0" class="cart-total">
               £{{ subTotal(darkChocBrownie) }}
             </p>
           </div>
@@ -93,13 +93,13 @@
             <button class="cart-add" @click="cartMinus(caramelBrownie)">
               -
             </button>
-            <span style="font-size:0.8rem">{{ caramelBrownie.cart }}</span>
+            <span class="cart-total">{{ caramelBrownie.cart }}</span>
             <button class="cart-add" @click="cartAdd(caramelBrownie)">+</button>
             <br />
             <button class="cart-send" @click="sendToCheckout(caramelBrownie)">
               add to cart
             </button>
-            <p v-if="caramelBrownie.cart > 0">
+            <p v-if="caramelBrownie.cart > 0" class="cart-total">
               £{{ subTotal(caramelBrownie) }}
             </p>
           </div>
@@ -125,13 +125,15 @@
               of 8 brownies
             </p>
             <button class="cart-add" @click="cartMinus(fudgeBrownie)">-</button>
-            <span style="font-size:0.8rem">{{ fudgeBrownie.cart }}</span>
+            <span class="cart-total">{{ fudgeBrownie.cart }}</span>
             <button class="cart-add" @click="cartAdd(fudgeBrownie)">+</button>
             <br />
             <button class="cart-send" @click="sendToCheckout(fudgeBrownie)">
               add to cart
             </button>
-            <p v-if="fudgeBrownie.cart > 0">£{{ subTotal(fudgeBrownie) }}</p>
+            <p v-if="fudgeBrownie.cart > 0" class="cart-total">
+              £{{ subTotal(fudgeBrownie) }}
+            </p>
           </div>
         </div>
       </div>
@@ -288,6 +290,10 @@ button.cart-send {
   border: solid 1px #331d0b;
 }
 
+.cart-total {
+  font-size: 0.8rem;
+}
+
 @media screen and (max-width: 600px) {
   div.shop {
     background: white;
@@ -310,6 +316,16 @@ button.cart-send {
     flex: 0 0 auto;
     max-width: 90%;
     box-shadow: none;
+  }
+
+  span.cart-total {
+    font-size: 1rem;
+    padding: 0 5px 0 5px;
+  }
+
+  button.cart-send,
+  button.cart-add {
+    font-size: 0.9rem;
   }
 }
 </style>

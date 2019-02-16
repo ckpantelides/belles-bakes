@@ -2,7 +2,6 @@
   <div>
     <div class="shop">
       <hr />
-      <br />
 
       <div class="faqs-container">
         <br />
@@ -124,7 +123,7 @@ p.question {
 
   hr {
     display: block;
-    margin-top: 0;
+    margin-top: 5px;
   }
 
   .faqs-container {
