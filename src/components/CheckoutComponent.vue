@@ -2,6 +2,7 @@
   <div>
     <div class="shop">
       <hr />
+      <br class="initial-break" />
       <div v-if="baskets.length < 1">
         <br />
         <img src="../assets/emptyBasket2.jpg" />
@@ -15,7 +16,7 @@
             <br />
             <p>name</p>
             <p>address</p>
-
+            <Payments></Payments>
             <br />
             <br />
           </div>
@@ -82,8 +83,13 @@
 </template>
 
 <script>
+import Payments from '../components/Payments.vue'
+
 export default {
   name: 'CheckoutComponent',
+  components: {
+    Payments
+  },
   props: {
     baskets: Array
   },
@@ -237,6 +243,10 @@ button.pay {
     width: 90%;
     height: auto;
     box-shadow: none;
+  }
+
+  br.initial-break {
+    display: none;
   }
 }
 </style>

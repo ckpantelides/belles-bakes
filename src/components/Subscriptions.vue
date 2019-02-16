@@ -2,6 +2,7 @@
   <div>
     <div class="shop">
       <hr />
+      <br class="initial-break" />
       <div class="subscription-container">
         <br />
         <p class="question">The perfect gift for you and your loved ones</p>
@@ -161,6 +162,10 @@ div.subscription p {
 
   div.subscription {
     width: 100%;
+  }
+
+  br.initial-break {
+    display: none;
   }
 }
 </style>

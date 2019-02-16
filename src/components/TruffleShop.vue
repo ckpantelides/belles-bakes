@@ -166,7 +166,7 @@ p.item-blurb {
   width: 50%;
   margin-left: auto;
   margin-right: auto;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .item-card {

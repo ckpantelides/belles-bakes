@@ -2,7 +2,7 @@
   <div>
     <div class="shop">
       <hr />
-
+      <br class="initial-break" />
       <div class="faqs-container">
         <br />
         <p class="question">How long will the brownies keep for?</p>
@@ -132,6 +132,11 @@ p.question {
     margin-right: auto;
     height: auto;
     box-shadow: none;
+    padding-top: 0;
+  }
+
+  br.initial-break {
+    display: none;
   }
 }
 </style>

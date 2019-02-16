@@ -252,7 +252,7 @@ p.item-blurb {
   margin-left: auto;
   margin-right: auto;
   margin-top: -5px;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .item-card {

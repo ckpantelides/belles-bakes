@@ -63,7 +63,6 @@
 <script>
 import HeroImage from './components/HeroImage.vue'
 import BrownieShop from './components/BrownieShop.vue'
-import CupcakeShop from './components/CupcakeShop.vue'
 import TruffleShop from './components/TruffleShop.vue'
 import AboutBelle from './components/AboutBelle.vue'
 import Subscriptions from './components/Subscriptions.vue'
@@ -74,7 +73,6 @@ export default {
   components: {
     HeroImage,
     BrownieShop,
-    CupcakeShop,
     TruffleShop,
     AboutBelle,
     Subscriptions,
@@ -92,10 +90,6 @@ export default {
       brownies: {
         pic: require('./assets/brownies.jpg'),
         currentComponent: BrownieShop
-      },
-      cupcakes: {
-        pic: require('./assets/cupcakes.jpg'),
-        currentComponent: CupcakeShop
       },
       truffles: {
         pic: require('./assets/truffles2.jpg'),
