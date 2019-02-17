@@ -175,8 +175,11 @@ p.item-blurb {
   transition: 0.3s;
   margin: 1%;
   min-width: 250px;
+  max-width: 300px;
   min-height: 440px;
   background: white;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .item-pic {

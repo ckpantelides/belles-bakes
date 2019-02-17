@@ -9,17 +9,25 @@
       </div>
       <div v-else-if="baskets.length > 0">
         <div class="checkout-wrapper">
+          <!--
           <div class="order-container">
+            <br />
             <p style="text-decoration:underline">
               <b>your details</b>
             </p>
             <br />
             <p>name</p>
-            <p>address</p>
-            <Payments></Payments>
+            <input v-model="name" />
+            <p>house number or name</p>
+            <input v-model="address.number" />
+            <p>street</p>
+            <input v-model="address.street" />
+            <p>post code</p>
+            <input v-model="address.postCode" />
             <br />
             <br />
           </div>
+          -->
           <div class="order-container">
             <br />
             <p style="text-decoration:underline">
@@ -66,7 +74,9 @@
               </table>
 
               <br />
-              <button class="pay">place order</button>
+              <!--
+              <button class="pay">place order</button>-->
+              <Payments></Payments>
             </div>
 
             <div v-else-if="totalBoxes >= 6">
@@ -144,7 +154,7 @@ img {
   height: 83vh;
   object-fit: cover;
   margin: 0;
-  margin-top: -28px;
+  margin-top: -55px;
 }
 
 hr {
@@ -164,13 +174,15 @@ hr {
 .order-container {
   flex: 1;
   width: 40%;
-  margin-right: auto;
-  margin-left: auto;
+  max-width: 700px;
+
   background: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
   height: 480px;
   padding: 2px 10px;
   margin: 0% 2%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 h2 {
@@ -193,6 +205,7 @@ p.question {
 table.checkout {
   font-size: 0.95rem;
   width: 95%;
+  max-width: 500px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -209,6 +222,11 @@ button.pay {
   font-size: 1.25rem;
   border: none;
   text-decoration: underline;
+}
+
+input {
+  font-family: Comfortaa;
+  clear: both;
 }
 
 @media screen and (max-width: 600px) {
