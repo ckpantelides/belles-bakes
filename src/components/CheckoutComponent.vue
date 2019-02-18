@@ -76,7 +76,7 @@
               <br />
               <!--
               <button class="pay">place order</button>-->
-              <Payments></Payments>
+              <Payments v-bind:amount="stripePayment"></Payments>
             </div>
 
             <div v-else-if="totalBoxes >= 6">
@@ -133,6 +133,11 @@ export default {
     costWithShipping() {
       return (parseFloat(this.grandTotal) + parseFloat(this.shipping)).toFixed(
         2
+      )
+    },
+    stripePayment() {
+      return parseFloat(
+        (parseFloat(this.grandTotal) + parseFloat(this.shipping)) * 100
       )
     }
   }

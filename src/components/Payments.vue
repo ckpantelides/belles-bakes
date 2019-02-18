@@ -2,13 +2,13 @@
   <div>
     <vue-stripe-checkout
       ref="checkoutRef"
+      :amount="fixedAmount"
       billing-address="true"
       shipping-address="true"
       zip-code="true"
       :image="image"
       :description="description"
       :currency="currency"
-      :amount="fixedAmount"
       @done="done"
       @opened="opened"
       @closed="closed"
@@ -25,6 +25,9 @@ import axios from 'axios'
 Vue.use(VueStripeCheckout, 'pk_test_CLqR7AIwqCkJdz1hwqIX8cpy')
 
 export default {
+  props: {
+    amount: Number
+  },
   data() {
     return {
       image: require('../assets/schnauzer.jpg'),
@@ -39,10 +42,11 @@ export default {
     done({ token, args }) {
       // token - is the token object
       // args - is an object containing the billing and shipping address if enabled
-      console.log(token.email)
+      const price = this.amount
+      // post(`http://localhost:5400/post`
       axios
-        .post(`http://localhost:4000/post`, {
-          body: { token, args }
+        .post(`https://belles-server.herokuapp.com/post`, {
+          body: { token, args, price }
         })
         .then(response => {})
         .catch(e => {
@@ -61,7 +65,7 @@ export default {
   },
   computed: {
     fixedAmount() {
-      return parseFloat(this.amount * 100).toFixed(2)
+      return parseFloat(this.amount)
     }
   }
 }
