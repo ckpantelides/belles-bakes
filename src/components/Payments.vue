@@ -52,6 +52,7 @@ export default {
         .catch(e => {
           this.errors.push(e)
         })
+      this.$emit('thank-you')
     },
     opened() {
       // do stuff

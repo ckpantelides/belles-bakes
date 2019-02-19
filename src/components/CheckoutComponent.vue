@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="shop">
-      <hr />
-      <br class="initial-break" />
+      <hr>
+      <br class="initial-break">
       <div v-if="baskets.length < 1">
-        <br />
-        <img src="../assets/emptyBasket2.jpg" />
+        <br>
+        <img src="../assets/emptyBasket2.jpg">
       </div>
       <div v-else-if="baskets.length > 0">
         <div class="checkout-wrapper">
@@ -29,7 +29,7 @@
           </div>
           -->
           <div class="order-container">
-            <br />
+            <br>
             <p style="text-decoration:underline">
               <b>your order</b>
             </p>
@@ -45,19 +45,15 @@
                 <td>£{{ basket.price }}</td>
                 <button class="delete" @click="removeItem(index)">-</button>
               </tr>
-              <tr>
-                &nbsp;
-              </tr>
+              <tr>&nbsp;</tr>
               <th>total</th>
               <th>{{ totalBoxes }}</th>
               <th>£{{ grandTotal }}</th>
-              <tr>
-                &nbsp;
-              </tr>
+              <tr>&nbsp;</tr>
             </table>
 
-            <br />
-            <br />
+            <br>
+            <br>
             <div v-if="totalBoxes > 0 && totalBoxes < 6">
               <table class="checkout">
                 <th>shipping</th>
@@ -67,16 +63,14 @@
                 <tr></tr>
                 <th>all in</th>
                 <th>&nbsp;&nbsp;&nbsp;</th>
-                <th style="text-decoration:underline">
-                  £{{ costWithShipping }}
-                </th>
+                <th style="text-decoration:underline">£{{ costWithShipping }}</th>
                 <th>&nbsp;&nbsp;&nbsp;</th>
               </table>
 
-              <br />
+              <br>
               <!--
               <button class="pay">place order</button>-->
-              <Payments v-bind:amount="stripePayment"></Payments>
+              <Payments v-bind:amount="stripePayment" @thank-you="thankYou"></Payments>
             </div>
 
             <div v-else-if="totalBoxes >= 6">
@@ -112,6 +106,9 @@ export default {
       this.baskets.splice(data, 1)
       // this.$delete(this.baskets, basket.id)
       this.$emit('update-cart-number', this.totalBoxes)
+    },
+    thankYou() {
+      this.$emit('thank-you')
     }
   },
   computed: {
@@ -236,7 +233,7 @@ input {
 
 @media screen and (max-width: 600px) {
   .header {
-    height: 13vh;
+    height: 14vh;
   }
   div.shop {
     background: white;

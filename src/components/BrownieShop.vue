@@ -295,6 +295,10 @@ button.cart-send {
 }
 
 @media screen and (max-width: 600px) {
+  .header {
+    height: 14vh;
+  }
+
   div.shop {
     background: white;
   }

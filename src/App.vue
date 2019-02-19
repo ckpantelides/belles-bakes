@@ -55,6 +55,7 @@
         :baskets="baskets"
         @send-to-checkout="updateCheckout"
         @update-cart-number="updateCartNumber"
+        @thank-you="thankYou"
       ></component>
     </div>
   </div>
@@ -129,6 +130,10 @@ export default {
     // is deleted from the checkout, and updates the number next to the cart icon (top-right corner)
     updateCartNumber(totalBoxes) {
       this.checkout = totalBoxes
+    },
+    // after order is completed return to homepage
+    thankYou() {
+      this.currentComponent = HeroImage
     }
   }
 }
@@ -246,7 +251,7 @@ a {
   }
 
   div.header {
-    height: 13vh;
+    height: 14vh;
   }
 }
 </style>
