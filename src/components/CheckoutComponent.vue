@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="shop">
-      <hr>
-      <br class="initial-break">
+      <hr />
+      <br class="initial-break" />
       <div v-if="baskets.length < 1">
-        <br>
-        <img src="../assets/emptyBasket2.jpg">
+        <br />
+        <img src="../assets/emptyBasket2.jpg" />
       </div>
       <div v-else-if="baskets.length > 0">
         <div class="checkout-wrapper">
@@ -29,7 +29,7 @@
           </div>
           -->
           <div class="order-container">
-            <br>
+            <br />
             <p style="text-decoration:underline">
               <b>your order</b>
             </p>
@@ -45,15 +45,19 @@
                 <td>£{{ basket.price }}</td>
                 <button class="delete" @click="removeItem(index)">-</button>
               </tr>
-              <tr>&nbsp;</tr>
+              <tr>
+                &nbsp;
+              </tr>
               <th>total</th>
               <th>{{ totalBoxes }}</th>
               <th>£{{ grandTotal }}</th>
-              <tr>&nbsp;</tr>
+              <tr>
+                &nbsp;
+              </tr>
             </table>
 
-            <br>
-            <br>
+            <br />
+            <br />
             <div v-if="totalBoxes > 0 && totalBoxes < 6">
               <table class="checkout">
                 <th>shipping</th>
@@ -63,14 +67,19 @@
                 <tr></tr>
                 <th>all in</th>
                 <th>&nbsp;&nbsp;&nbsp;</th>
-                <th style="text-decoration:underline">£{{ costWithShipping }}</th>
+                <th style="text-decoration:underline">
+                  £{{ costWithShipping }}
+                </th>
                 <th>&nbsp;&nbsp;&nbsp;</th>
               </table>
 
-              <br>
+              <br />
               <!--
               <button class="pay">place order</button>-->
-              <Payments v-bind:amount="stripePayment" @thank-you="thankYou"></Payments>
+              <Payments
+                v-bind:amount="stripePayment"
+                @thank-you="thankYou"
+              ></Payments>
             </div>
 
             <div v-else-if="totalBoxes >= 6">
@@ -242,11 +251,12 @@ input {
   hr {
     display: block;
     margin-top: -10px;
+    margin-bottom: 0.3em;
   }
 
   img {
     margin-top: -40px;
-    height: 90vh;
+    height: 83vh;
   }
 
   .checkout-wrapper {

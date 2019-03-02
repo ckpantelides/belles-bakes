@@ -134,6 +134,8 @@ export default {
     // after order is completed return to homepage
     thankYou() {
       this.currentComponent = HeroImage
+      this.checkout = 0
+      this.baskets = []
     }
   }
 }

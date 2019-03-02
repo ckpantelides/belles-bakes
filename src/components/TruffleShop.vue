@@ -243,6 +243,7 @@ button.cart-send {
     flex: 0 0 auto;
     max-width: 90%;
     box-shadow: none;
+    margin-right: 2%;
   }
 
   span.cart-total {
