@@ -78,6 +78,7 @@
               <button class="pay">place order</button>-->
               <Payments
                 v-bind:amount="stripePayment"
+                v-bind:baskets="baskets"
                 @thank-you="thankYou"
               ></Payments>
             </div>

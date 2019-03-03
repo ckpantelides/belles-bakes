@@ -26,7 +26,8 @@ Vue.use(VueStripeCheckout, 'pk_test_CLqR7AIwqCkJdz1hwqIX8cpy')
 
 export default {
   props: {
-    amount: Number
+    amount: Number,
+    baskets: Array
   },
   data() {
     return {
@@ -43,10 +44,12 @@ export default {
       // token - is the token object
       // args - is an object containing the billing and shipping address if enabled
       const price = this.amount
+      const baskets = this.baskets
       // post(`http://localhost:5400/post`
+      // `https://belles-server.herokuapp.com/post`
       axios
         .post(`https://belles-server.herokuapp.com/post`, {
-          body: { token, args, price }
+          body: { token, args, price, baskets }
         })
         .then(response => {})
         .catch(e => {
