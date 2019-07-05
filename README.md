@@ -14,7 +14,7 @@ A single page app built with components (for the brownie shop, truffle shop, che
 ![img1] ![img2]
 
 [img1]: https://github.com/ckpantelides/belles-bakes/blob/images/belles-crop1.jpg
-[img2]: https://github.com/ckpantelides/belles-bakes/blob/images/belles-crop4.png
+[img2]: https://github.com/ckpantelides/belles-bakes/blob/images/belles-crop4.jpg
 
 #### Installation
 
