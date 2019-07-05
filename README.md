@@ -11,11 +11,10 @@ A single page app built with components (for the brownie shop, truffle shop, che
 
 > Make a test payment using the credit card number: 4242 4242 4242 4242.
 
-![img1] ![img2] ![img3]
+![img1] ![img2]
 
 [img1]: https://github.com/ckpantelides/belles-bakes/blob/images/belles-crop1.jpg
 [img2]: https://github.com/ckpantelides/belles-bakes/blob/images/belles-crop2.png
-[img3]: https://github.com/ckpantelides/belles-bakes/blob/images/belles-crop3.jpg
 
 #### Installation
 
